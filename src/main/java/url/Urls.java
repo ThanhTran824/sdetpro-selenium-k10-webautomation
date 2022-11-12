@@ -10,4 +10,6 @@ public interface Urls {
     String JS_ALERT_SLUG = "/javascript_alerts";
     String FLOATING_MENU_SLUG = "/floating_menu";
 
+    String BASIC_AUTHENTICATION_SLUG = "/basic_auth";
+
 }
