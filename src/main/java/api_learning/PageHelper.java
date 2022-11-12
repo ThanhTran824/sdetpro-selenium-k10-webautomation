@@ -21,16 +21,16 @@ public class PageHelper {
     }
 
     protected PageHelper scrollToTop() {
-        jsExecutor.executeScript(SCROLL_TO_BOTTOM);
+        jsExecutor.executeScript(SCROLL_TO_TOP);
         return this;
     }
 
-    public PageHelper removeElement(WebElement toBeRemoveElement) {
+    protected PageHelper removeElement(WebElement toBeRemoveElement) {
         jsExecutor.executeScript("arguments[0].remove()", toBeRemoveElement);
         return this;
     }
 
-    public PageHelper changeElementStyle(WebElement toBeChangeElement){
+    protected PageHelper changeElementStyle(WebElement toBeChangeElement){
         jsExecutor.executeScript("arguments[0].setAttribute('style', 'background: blue; border: 4px solid red')", toBeChangeElement);
         return this;
     }

@@ -49,7 +49,7 @@ public class JsExecutor {
             pageHelper.removeElement(inputFormElm).changeElementStyle(checkboxFormElm);
 
             // Debug only purpose
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
         } catch (Exception e) {
             e.printStackTrace();
