@@ -1,5 +1,6 @@
-package Hearders;
+package hearder;
 
+import hearder.interfaces.IHeader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
@@ -11,9 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class BasicAuthentication {
+public class BasicAuthentication implements IHeader {
 
-    public void credentials(WebDriver driver, String username, String password) {
+    @Override
+    public void setCredentials(WebDriver driver, String username, String password) {
         // Get the devtools from the running driver and create a session
         DevTools devTools = ((ChromeDriver) driver).getDevTools();
         devTools.createSession();

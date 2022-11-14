@@ -11,5 +11,6 @@ public interface Urls {
     String FLOATING_MENU_SLUG = "/floating_menu";
     String BASIC_AUTHENTICATION_SLUG = "/basic_auth";
     String LOGIN_SLUG = "/login";
+    String DIGEST_AUTHENTICATION_SLUG = "/digest_auth";
 
 }
