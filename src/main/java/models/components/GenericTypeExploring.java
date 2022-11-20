@@ -12,7 +12,7 @@ public class GenericTypeExploring {
             T loginPageObj = constructor.newInstance();
             loginPageObj.login();
             loginPageObj.verifyLoginSuccess();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
