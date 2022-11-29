@@ -15,5 +15,7 @@ public interface Urls {
     String DIGEST_AUTHENTICATION_SLUG = "/digest_auth";
     String ADD_REMOVE_ELEMENT_SLUG = "/add_remove_elements/";
     String BROKEN_IMAGE_SLUG = "/broken_images";
+    String BUILD_YOUR_CHEAP_OWN_COMPUTER = "/build-your-cheap-own-computer";
+    String BUILD_STANDARD_COMPUTER = "/build-your-own-computer";
 
 }

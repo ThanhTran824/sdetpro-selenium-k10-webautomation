@@ -60,7 +60,6 @@ public class BaseTest {
                     Allure.addAttachment(methodName, inputStream);
                 }
 
-                System.getProperty("user.dir")
             } catch (Exception e) {
                 e.printStackTrace();
             }
