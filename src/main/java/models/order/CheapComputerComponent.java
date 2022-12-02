@@ -20,4 +20,5 @@ public class CheapComputerComponent extends ComputerEssentialComponent {
     public String selectRAMType(String type) {
         return selectComputerOption(type);
     }
+
 }
