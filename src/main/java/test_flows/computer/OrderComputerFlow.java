@@ -1,6 +1,6 @@
 package test_flows.computer;
 
-import models.order.ComputerEssentialComponent;
+import models.components.order.ComputerEssentialComponent;
 import models.pages.ComputerItemDetailsPage;
 import org.openqa.selenium.WebDriver;
 import test_data.computer.ComputerData;
@@ -12,8 +12,9 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
 
     private final WebDriver driver;
     private final Class<T> computerEssentialComponent;
-
     private ComputerData computerData;
+    private int quantity = 1;
+    private double totalItemPrice;
 
     public OrderComputerFlow(WebDriver driver, Class<T> computerEssentialComponent, ComputerData computerData) {
         this.driver = driver;
@@ -21,46 +22,60 @@ public class OrderComputerFlow<T extends ComputerEssentialComponent> {
         this.computerData = computerData;
     }
 
-    public void buildComputerSpecAndAddToCart() {
+    public OrderComputerFlow(WebDriver driver, Class<T> computerEssentialComponent, ComputerData computerData, int quantity) {
+        this.driver = driver;
+        this.computerEssentialComponent = computerEssentialComponent;
+        this.computerData = computerData;
+        this.quantity = quantity;
+    }
 
-        // Build computer spec
+    public void buildComputerSpecAndAddToCart(){
         ComputerItemDetailsPage computerItemDetailsPage = new ComputerItemDetailsPage(driver);
-        T computerEssentialComp = computerItemDetailsPage.computerComponent(computerEssentialComponent);
+        T computerEssentialComp = computerItemDetailsPage.computerComp(computerEssentialComponent);
+
+        // Unselect all default options
+        computerEssentialComp.unselectAllDefaultOptions();
+
         String processorFullStr = computerEssentialComp.selectProcessorType(computerData.getProcessorType());
         double processorAddedPrice = extractAdditionalPrice(processorFullStr);
         String ramFullStr = computerEssentialComp.selectRAMType(computerData.getRam());
         double ramAddedPrice = extractAdditionalPrice(ramFullStr);
-        String hddFullStr = computerEssentialComp.selectHDD(computerData.getHdd());
-        double hddAddedPrice = extractAdditionalPrice(hddFullStr);
+        String fullHDDStr = computerEssentialComp.selectHDD(computerData.getHdd());
+        double hddAddedPrice = extractAdditionalPrice(fullHDDStr);
 
         double osAddedPrice = 0;
-        if (computerData.getOs() != null) {
+        if(computerData.getOs() != null){
             String osFullStr = computerEssentialComp.selectOS(computerData.getOs());
             osAddedPrice = extractAdditionalPrice(osFullStr);
         }
-        String softwareFullStr = computerEssentialComp.selectSoftware(computerData.getSoftware());
-        double softwareAddedPrice = extractAdditionalPrice(softwareFullStr);
 
-        double totalAddedPrice = processorAddedPrice + ramAddedPrice + hddAddedPrice + osAddedPrice + softwareAddedPrice;
-        System.out.println("Total price: " + totalAddedPrice);
+        if(this.quantity != 1){
+            computerEssentialComp.inputQuantity(this.quantity);
+        }
+
+        double totalAddedPrice = processorAddedPrice + ramAddedPrice + hddAddedPrice + osAddedPrice;
+        totalItemPrice = (computerEssentialComp.basePrice() + totalAddedPrice) * this.quantity;
 
         // Add to cart
-        try {
-            Thread.sleep(3000);
-        } catch (Exception ignored) {
-        }
+        computerEssentialComp.clickOnAddToCartBtn();
+        computerItemDetailsPage.barNotificationComp().waitUntilItemAddedToCart();
+        computerItemDetailsPage.barNotificationComp().clickOnCloseBtn();
+
+        // Navigate to shopping cart
+        computerItemDetailsPage.headerComp().clickOnShoppingCartLink();
     }
 
-    private double extractAdditionalPrice(String itemStr) {
+    private double extractAdditionalPrice(String itemStr){
         double price = 0;
-        Pattern pattern = Pattern.compile("\\[(.*?)\\]");// get all text in []
+        int factor = 1;
+        Pattern pattern = Pattern.compile("\\[(.*?)\\]");
         Matcher matcher = pattern.matcher(itemStr);
-        if (matcher.find()) {
-            if (matcher.group(1).contains("-"))
-                price = Double.parseDouble(matcher.group(1).replaceAll("[+-]", "")) * -1;
-            else
-                price = Double.parseDouble(matcher.group(1).replaceAll("[+-]", ""));
+        if(matcher.find()){
+            String priceStr = matcher.group(1);
+            if(priceStr.startsWith("-")) factor = -1;
+            price = Double.parseDouble(matcher.group(1).replaceAll("[+-]", ""));
         }
-        return price;
+        return price * factor;
     }
+
 }

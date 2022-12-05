@@ -22,15 +22,21 @@ public class DemoHomePageTest {
             HomePage homePage = new HomePage(driver);
             FooterComponent footerComp = homePage.footerComp();
 
-            InformationColumn informationColumn = footerComp.informationColumn();
-            CustomerServiceColumn customerServiceColumn = footerComp.customerServiceColumn();
-            MyAccountColumn myAccountColumn = footerComp.myAccountColumn();
-            FollowUsColumn followUsColumn = footerComp.followUsColumn();
+            //InformationColumn informationColumn = footerComp.informationColumnComp();
+            footerComp.informationColumnComp();
+            //CustomerServiceColumn customerServiceColumn = footerComp.customerServiceColumnComp();
+            footerComp.customerServiceColumnComp();
 
-            System.out.println(informationColumn.footerElem().getText());
+            //MyAccountColumn myAccountColumn = footerComp.myAccountColumn();
+            footerComp.accountColumnComp();
+
+            //FollowUsColumn followUsColumn = footerComp.followUsColumnComp();
+            footerComp.followUsColumnComp();
+
+            /*System.out.println(informationColumn.footerElem().getText());
             System.out.println(customerServiceColumn.footerElem().getText());
             System.out.println(myAccountColumn.footerElem().getText());
-            System.out.println(followUsColumn.footerElem().getText());
+            System.out.println(followUsColumn.footerElem().getText());*/
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -7,25 +7,24 @@ import org.openqa.selenium.WebElement;
 @ComponentCssSelector(value = "#login")
 public class LoginFormComponent extends Component {
 
-    private static final By usernameSel = By.id("username");
-    private static final By passwordSel = By.cssSelector("#password");
-    private static final By loginBtnSel = By.cssSelector("button[type='submit']");
+    private final static By usernameSel = By.id("username");
+    private final static By passwordSel = By.cssSelector("#password");
+    private final static By loginBtnSel = By.cssSelector("[type='submit']");
 
     public LoginFormComponent(WebDriver driver, WebElement component) {
         super(driver, component);
     }
 
-    public WebElement usernameElem() {
-        return driver.findElement(usernameSel);
+    public void inputUsername(String usernameTxt){
+        driver.findElement(usernameSel).sendKeys(usernameTxt);
     }
 
-    public WebElement passwordElem() {
-        return driver.findElement(passwordSel);
+    public void inputPassword(String passwordTxt){
+        driver.findElement(passwordSel).sendKeys(passwordTxt);
     }
 
-    public WebElement loginBtnElem() {
-        return driver.findElement(loginBtnSel);
+    public void clickOLoginBtn(){
+        driver.findElement(loginBtnSel).click();
     }
-
 
 }

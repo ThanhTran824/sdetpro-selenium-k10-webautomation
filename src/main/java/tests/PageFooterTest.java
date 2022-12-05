@@ -16,10 +16,11 @@ public class PageFooterTest {
             driver.get(Urls.BASE_URL.concat(Urls.LOGIN_SLUG));
 
             HerokuLoginPage loginPage = new HerokuLoginPage(driver);
-            System.out.println(loginPage.footerComponent().getLinkText());
+            //System.out.println(loginPage.footerComponent().getLinkText());
 
             LoginFormComponent loginFormComponent = loginPage.loginFormComponent();
-            loginFormComponent.usernameElem().sendKeys("Dida");
+            //loginFormComponent.usernameElem().sendKeys("Dida");
+            loginFormComponent.inputUsername("Dida");
 
             Thread.sleep(2000);
 

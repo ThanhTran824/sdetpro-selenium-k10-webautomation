@@ -1,7 +1,8 @@
 package models.pages;
 
-import models.order.ComputerEssentialComponent;
+import models.components.order.ComputerEssentialComponent;
 import org.openqa.selenium.WebDriver;
+
 
 public class ComputerItemDetailsPage extends BasePage {
 
@@ -9,7 +10,8 @@ public class ComputerItemDetailsPage extends BasePage {
         super(driver);
     }
 
-    public <T extends ComputerEssentialComponent> T computerComponent(Class<T> computerEssentialComponentClass) {
-        return findComponent(computerEssentialComponentClass, driver);
+    public<T extends ComputerEssentialComponent> T computerComp(Class<T> computerEssentialCompClass){
+        return findComponent(computerEssentialCompClass, driver);
     }
+
 }

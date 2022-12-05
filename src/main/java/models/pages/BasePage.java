@@ -1,10 +1,15 @@
 package models.pages;
 
 import models.components.Component;
-import models.components.PageFooterComponent;
+import models.components.global.BarNotificationComponent;
+import models.components.global.TopMenuComponent;
 import models.components.global.footer.FooterComponent;
+import models.components.global.header.HeaderComponent;
+import models.components.product.ProductGridComponent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage extends Component {
 
@@ -15,11 +20,24 @@ public class BasePage extends Component {
         this.driver = driver;
     }
 
-    public PageFooterComponent footerComponent() {
-        return findComponent(PageFooterComponent.class, driver);
+    public BarNotificationComponent barNotificationComp() {
+        return findComponent(BarNotificationComponent.class, driver);
     }
 
-    public FooterComponent footerComp(){
+    public HeaderComponent headerComp() {
+        return findComponent(HeaderComponent.class, driver);
+    }
+
+    public TopMenuComponent topMenuComp() {
+        return findComponent(TopMenuComponent.class, driver);
+    }
+
+    public ProductGridComponent productGridComp() {
+        return findComponent(ProductGridComponent.class, driver);
+    }
+
+    public FooterComponent footerComp() {
         return findComponent(FooterComponent.class, driver);
     }
+
 }
