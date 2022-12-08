@@ -1,0 +1,15 @@
+package models.components.checkout;
+
+import models.components.Component;
+import models.components.ComponentCssSelector;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+@ComponentCssSelector(value = "#opc-payment_info")
+public class PaymentInformationComponent extends Component {
+
+    //payment-method-next-step-button
+    public PaymentInformationComponent(WebDriver driver, WebElement component) {
+        super(driver, component);
+    }
+}
