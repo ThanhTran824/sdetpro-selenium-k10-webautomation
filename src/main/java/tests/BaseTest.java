@@ -25,9 +25,10 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    public void initBrowserSession() {
+    /*public void initBrowserSession() {
+
         driver = DriverFactory.getChromeDriver();
-    }
+    }*/
 
     @AfterTest(alwaysRun = true)
     public void closeBrowserSession() {

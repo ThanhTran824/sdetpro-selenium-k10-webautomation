@@ -10,7 +10,7 @@ public class Elements {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             // Navigate to the target page
@@ -28,10 +28,10 @@ public class Elements {
             // if delete button display, click remove button
             By toBeRemovedSel = By.cssSelector("button[onclick='deleteElement()']");
             // Way 1
-            /*boolean removeBtnIsEnabled = driver.findElement(toBeRemovedSel).isEnabled();
+            *//*boolean removeBtnIsEnabled = driver.findElement(toBeRemovedSel).isEnabled();
             if (removeBtnIsEnabled) {
                 driver.findElement(toBeRemovedSel).click();
-            }*/
+            }*//*
             // Way 2
             WebElement removeBtnEle = driver.findElement(toBeRemovedSel);
             if (removeBtnEle.isEnabled()) {
@@ -46,7 +46,7 @@ public class Elements {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
 
     }
 }

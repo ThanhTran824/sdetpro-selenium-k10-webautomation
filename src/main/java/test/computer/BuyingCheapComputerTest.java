@@ -1,6 +1,7 @@
 package test.computer;
 
 import models.components.order.CheapComputerComponent;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
@@ -17,7 +18,8 @@ public class BuyingCheapComputerTest extends BaseTest implements Urls {
 
     @Test(dataProvider = "computerData")
     public void testCheapComputerBuying(ComputerData computerData) {
-        driver.get(BASE_URL.concat(BUILD_YOUR_CHEAP_OWN_COMPUTER));
+        WebDriver driver = getDriver();
+        driver.get(BASE_URL.concat("/build-your-cheap-own-computer"));
         int randomQuantity = new SecureRandom().nextInt(100) + 2;
         OrderComputerFlow<CheapComputerComponent> orderComputerFlow =
                 new OrderComputerFlow<>(driver, CheapComputerComponent.class, computerData, randomQuantity);
@@ -26,7 +28,6 @@ public class BuyingCheapComputerTest extends BaseTest implements Urls {
         orderComputerFlow.agreeTOSAndCheckOut();
         orderComputerFlow.inputBillingAddress();
         orderComputerFlow.inputShippingAddress();
-        orderComputerFlow.selectPaymentMethod();
         orderComputerFlow.selectShippingMethod();
         orderComputerFlow.selectPaymentMethod(PaymentMethodType.CREDIT_CARD);
         orderComputerFlow.inputPaymentInfo(CreditCardType.DISCOVER);
@@ -35,7 +36,7 @@ public class BuyingCheapComputerTest extends BaseTest implements Urls {
 
     @DataProvider
     public ComputerData[] computerData() {
-        String fileLocation = "\\src\\main\\java\\test_data\\computer\\CheapComputerDataList.json";
+        String fileLocation = "/src/main/java/test_data/computer/CheapComputerDataList.json";
         return DataObjectBuilder.buildDataObjectFrom(fileLocation, ComputerData[].class);
     }
 

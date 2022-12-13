@@ -27,7 +27,7 @@ public class BrokenImage {
      */
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        //WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             // Locate example class
@@ -46,7 +46,7 @@ public class BrokenImage {
                         System.out.println("log: " + logEntry.getText());
                         System.out.println("level: " + logEntry.getLevel());
                     });*/
-            driver.get(Urls.BASE_URL.concat(Urls.BROKEN_IMAGE_SLUG));
+            //driver.get(Urls.BASE_URL.concat(Urls.BROKEN_IMAGE_SLUG));
 
             /*for (WebElement image : imagesEle) {
                 //SendRequest request = new SendRequest(image.getAttribute("src").toString());
@@ -59,6 +59,6 @@ public class BrokenImage {
             e.printStackTrace();
         }
 
-        driver.quit();
+        //driver.quit();
     }
 }

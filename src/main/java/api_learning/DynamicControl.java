@@ -13,7 +13,7 @@ import java.time.Duration;
 public class DynamicControl {
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
 
         try {
@@ -55,6 +55,6 @@ public class DynamicControl {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }

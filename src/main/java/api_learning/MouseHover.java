@@ -19,7 +19,7 @@ public class MouseHover {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
 
@@ -44,11 +44,11 @@ public class MouseHover {
                 System.out.println("===========BEFORE MOUSE HOVER===========");
                 System.out.println((profileNameElem.getText() + ": "
                         + profileLinkElem.getAttribute("href")));
-                /*
+                *//*
                 // Notes
                 // element.getText() only work after mouse hover to it
                 // element.getAttribute() work because it located in DOM Tree
-                */
+                *//*
                 System.out.println(profileLinkElem.isDisplayed());
                 // Debug purpose only
                 Thread.sleep(2000);
@@ -72,6 +72,6 @@ public class MouseHover {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }

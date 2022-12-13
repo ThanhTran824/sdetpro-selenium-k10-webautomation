@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FormInteractionMultipleMatching {
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
         try{
             // Navigate
             driver.get("http://the-internet.herokuapp.com/login");
@@ -37,6 +37,6 @@ public class FormInteractionMultipleMatching {
         }catch (Exception e) {
             e.printStackTrace();
         }
-        driver.quit();
+        driver.quit();*/
     }
 }

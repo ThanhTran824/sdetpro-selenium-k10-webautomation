@@ -12,7 +12,7 @@ import java.util.List;
 public class FeatureProductTest {
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             testFeaturedProductHomePage(driver);
@@ -20,7 +20,7 @@ public class FeatureProductTest {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 
     private static void testFeaturedProductHomePage(WebDriver driver) {

@@ -22,19 +22,19 @@ public class Component {
     public Component(WebDriver driver, WebElement component) {
         this.driver = driver;
         this.component = component;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(15));
     }
 
-    public WebElement getComponent(){
+    public WebElement getComponent() {
         return component;
     }
 
     public WebElement findElement(By by) {
-        return this.component.findElement(by);
+        return component.findElement(by);
     }
 
     public List<WebElement> findElements(By by) {
-        return this.component.findElements(by);
+        return component.findElements(by);
     }
 
     public <T extends Component> T findComponent(Class<T> componentClass, WebDriver driver) {
@@ -42,6 +42,7 @@ public class Component {
     }
 
     public <T extends Component> List<T> findComponents(Class<T> componentClass, WebDriver driver) {
+
         // Get Component selector
         By componentSelector;
         try {
@@ -49,7 +50,7 @@ public class Component {
         } catch (Exception e) {
             throw new IllegalArgumentException("[ERR] The component must have a css selector!");
         }
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(componentSelector));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(componentSelector));
         List<WebElement> results = component.findElements(componentSelector);
 
         // Define component class constructor params
@@ -97,4 +98,5 @@ public class Component {
     private void scrollToElement(String position, WebElement element){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(" + position + ")", element);
     }
+
 }

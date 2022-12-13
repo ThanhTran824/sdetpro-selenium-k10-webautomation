@@ -10,7 +10,7 @@ import url.Urls;
 public class JsExecutor {
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             // Navigate to the target page
@@ -55,6 +55,6 @@ public class JsExecutor {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }

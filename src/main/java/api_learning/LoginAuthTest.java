@@ -27,12 +27,12 @@ public class LoginAuthTest {
     private final static String PASSWORD = "admin";
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30L));
 
         try {
 
-            /*BasicAuthentication basicHeader = new BasicAuthentication();
+            *//*BasicAuthentication basicHeader = new BasicAuthentication();
             basicHeader.setCredentials(driver, USERNAME, PASSWORD);
 
             // Navigate to the target page
@@ -45,7 +45,7 @@ public class LoginAuthTest {
             System.out.println(result);
 
             // Debug purpose only
-            Thread.sleep(5000);*/
+            Thread.sleep(5000);*//*
 
             DigestAuthentication digestAuthentication = new DigestAuthentication();
             digestAuthentication.setCredentials(driver, USERNAME, PASSWORD);
@@ -66,6 +66,6 @@ public class LoginAuthTest {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }

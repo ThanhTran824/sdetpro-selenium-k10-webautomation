@@ -13,7 +13,7 @@ import java.time.Duration;
 public class FormInteraction {
     public static void main(String[] args) {
         // open Chrome browser
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try{
             // Navigate to the target page
@@ -82,6 +82,6 @@ public class FormInteraction {
         }
 
         // close browser
-        driver.quit();
+        driver.quit();*/
     }
 }

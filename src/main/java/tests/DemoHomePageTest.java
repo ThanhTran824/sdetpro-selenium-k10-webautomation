@@ -14,7 +14,7 @@ public class DemoHomePageTest {
     public void testFooter() {
         //public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
 
@@ -33,15 +33,15 @@ public class DemoHomePageTest {
             //FollowUsColumn followUsColumn = footerComp.followUsColumnComp();
             footerComp.followUsColumnComp();
 
-            /*System.out.println(informationColumn.footerElem().getText());
+            *//*System.out.println(informationColumn.footerElem().getText());
             System.out.println(customerServiceColumn.footerElem().getText());
             System.out.println(myAccountColumn.footerElem().getText());
-            System.out.println(followUsColumn.footerElem().getText());*/
+            System.out.println(followUsColumn.footerElem().getText());*//*
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             driver.quit();
-        }
+        }*/
     }
 }

@@ -10,7 +10,7 @@ public class PageFooterTest {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             driver.get(Urls.BASE_URL.concat(Urls.LOGIN_SLUG));
@@ -29,6 +29,6 @@ public class PageFooterTest {
         } finally {
 
             driver.quit();
-        }
+        }*/
     }
 }

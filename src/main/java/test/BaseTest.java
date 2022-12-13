@@ -10,27 +10,39 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class BaseTest {
 
-    protected static WebDriver driver;
+    private final static List<DriverFactory> webdriverThreadPool = Collections.synchronizedList(new ArrayList<>());
+    private static ThreadLocal<DriverFactory> driverThread;
+    private String browserName;
+
+    protected WebDriver getDriver(){
+        return driverThread.get().getDriver(browserName);
+    }
 
     @BeforeTest
-    public void initBrowserSession(){
-        driver = DriverFactory.getChromeDriver();
+    @Parameters({"browser"})
+    public void initBrowserSession(String browserName){
+        this.browserName = browserName;
+        driverThread = ThreadLocal.withInitial(() -> {
+            DriverFactory webdriverThread = new DriverFactory();
+            webdriverThreadPool.add(webdriverThread);
+            return webdriverThread;
+        });
     }
 
     @AfterTest(alwaysRun = true)
     public void closeBrowserSession(){
-        if(driver != null) driver.quit();
+        driverThread.get().closeBrowserSession();
     }
 
     @AfterMethod
@@ -52,7 +64,7 @@ public class BaseTest {
             String filename = methodName + "-" + y + "-" + m + "-" + d + "-" + hr + "-" + min + "-" + sec + ".png";
 
             // 3. Take Screenshot
-            File screenshotBase64Data = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File screenshotBase64Data = ((TakesScreenshot) driverThread.get().getDriver(browserName)).getScreenshotAs(OutputType.FILE);
 
             try {
 

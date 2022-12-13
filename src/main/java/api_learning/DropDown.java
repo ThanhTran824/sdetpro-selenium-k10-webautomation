@@ -12,7 +12,7 @@ public class DropDown {
 
     public static void main(String[] args) {
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             // Navigate to the target page
@@ -39,6 +39,6 @@ public class DropDown {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }

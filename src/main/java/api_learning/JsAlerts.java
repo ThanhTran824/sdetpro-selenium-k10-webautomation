@@ -21,7 +21,7 @@ public class JsAlerts {
 
 
     public static void main(String[] args) {
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5L));
 
         try {
@@ -65,7 +65,7 @@ public class JsAlerts {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 
     private static void handleJsAlert(WebDriver driver, Boolean isAccepted) {

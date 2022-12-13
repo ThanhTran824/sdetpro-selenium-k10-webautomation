@@ -12,7 +12,7 @@ public class IFrame {
         // iframe[id^='mce'] // find an id startWith 'mce'
         // iframe[id$='mce'] // find an id endWith 'mce'
 
-        WebDriver driver = DriverFactory.getChromeDriver();
+        /*WebDriver driver = DriverFactory.getChromeDriver();
 
         try {
             // Navigate to the target page
@@ -36,6 +36,6 @@ public class IFrame {
             e.printStackTrace();
         }
 
-        driver.quit();
+        driver.quit();*/
     }
 }
